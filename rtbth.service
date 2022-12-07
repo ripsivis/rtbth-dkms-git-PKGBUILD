@@ -1,0 +1,12 @@
+[Unit]
+Description = Load RT3290/RT3298LE Bluetooth driver module
+After = display-manager.service
+
+[Service]
+Type = oneshot
+ExecStart = /usr/sbin/rtbth
+TimeoutSec = 0
+RemainAfterExit = true
+
+[Install]
+WantedBy = multi-user.target

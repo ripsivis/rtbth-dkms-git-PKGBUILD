@@ -1,16 +1,23 @@
-
 post_install() {
   dkms install -m rtbth/${1%-*}
+  systemctl enable rtbth.service
 }
 
 pre_upgrade() {
-  pre_remove ${2}
+  systemctl stop rtbth.service
+  dkms remove -m rtbth/${1%-*} --all ${2}
 }
 
 post_upgrade() {
-  post_install ${1}
+  dkms install -m rtbth/${1%-*} ${1}
+  systemctl start rtbth.service
 }
 
 pre_remove() {
+  systemctl disable --now rtbth.service
   dkms remove -m rtbth/${1%-*} --all
+}
+
+post_remove() {
+  systemctl daemon-reload
 }
