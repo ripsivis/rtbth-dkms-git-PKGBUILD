@@ -4,7 +4,7 @@ After = display-manager.service
 
 [Service]
 Type = oneshot
-ExecStart = /usr/sbin/rtbth
+ExecStart = /usr/bin/rtbth
 TimeoutSec = 0
 RemainAfterExit = true
 

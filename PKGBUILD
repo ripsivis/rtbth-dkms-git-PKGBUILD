@@ -7,7 +7,7 @@
 
 _name=rtbth-dkms
 pkgname=rtbth-dkms-git
-pkgver=3.9.6.r7.gce4e65d
+pkgver=3.9.6.r12.gde01602
 pkgrel=1
 pkgdesc="Kernel module sources for Ralink RT3290 Bluetooth."
 arch=('i686' 'x86_64')
@@ -29,10 +29,10 @@ pkgver() {
 
 package() {
   cd "$srcdir/"
-  install -dm755 "$pkgdir/usr/bin"
-  install -dm755 "$pkgdir/usr/src"
-  install -dm755 "$_name" "$pkgdir/usr/src/$provides-$pkgver"
-  install -Dm755 "$_name/tools/rtbt" "$pkgdir/usr/bin/rtbt"
-  install -Dm644 rtbth.service "$pkgdir/usr/lib/systemd/system/rtbth.service"
-  install -Dm755 rtbth "$pkgdir/usr/bin/rtbth"
+  install -d -m 755 "${pkgdir}"/usr/bin
+  install -d -m 755 "${pkgdir}"/usr/src
+  install -D -m 644 ../rtbth.service "${pkgdir}"/usr/lib/systemd/system/rtbth.service
+  install -D -m 755 ../rtbth "${pkgdir}"/usr/bin/rtbth
+  install -D -m 755 "${_name}/tools/rtbt" "${pkgdir}/usr/bin/rtbt"
+  cp -r "${_name}"/ "${pkgdir}/usr/src/rtbth-${pkgver}"
 }
