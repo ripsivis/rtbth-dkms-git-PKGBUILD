@@ -8,14 +8,11 @@ pkgbase = rtbth-dkms-git
 	arch = x86_64
 	license = mixed
 	depends = dkms
-	optdepends = bluez: Canonical implementation of bluetooth protocol
+	optdepends = bluez: Canonical implementation of Bluetooth protocol
 	optdepends = bluez-utils: Utilities for Bluez
 	provides = rtbth
 	conflicts = rtbth-dkms
 	source = git+https://github.com/ripsivis/rtbth-dkms.git
-	source = rtbth.service
-	source = rtbth
-	md5sums = SKIP
+	sha256sums = SKIP
 
 pkgname = rtbth-dkms-git
-

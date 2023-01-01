@@ -1,3 +1,0 @@
-#!/bin/sh
-sleep 5
-/sbin/modprobe --ignore-install rtbth; /usr/bin/mknod /dev/rtbth c 192 0; /usr/bin/rtbt &
